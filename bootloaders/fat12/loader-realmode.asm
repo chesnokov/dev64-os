@@ -162,26 +162,10 @@ verifica_fim_setores:
   jmp loop_obtem_dados_kernel
 
 executa_kernel:
+  push word seg_read_kernel
+  push word 00h
+  retf
 
-  ; switch to protected mode
-entry:
-  lgdt  [gdtr+boot_program]
-  
-  in al, 0x92
-  or al, 2
-  out 0x92, al
-
-  mov eax, cr0 
-  or al, 1	
-  mov cr0, eax 
-	
-  jmp 0x8: _protected+boot_program  
-
-  use32
-_protected:
-  jmp 0x8:0x10000
-
-  use16
 le_setor_dados: ;es:bx -> position in read buffer
 
   ;bp -> logical sector to read
@@ -231,50 +215,7 @@ read_sector:
   jc   newread
   pop  bp
   retn
-;global Descriptor Table
-;0 descriptor usage is restricted
-  align 4
-gdt:                    ; Address for the GDT
-gdt_null:               ; Null Segment
-  dd 0
-  dd 0
-
-gdt_code:               ; Code segment, read/execute, nonconforming
-  dw 0FFFFh
-  dw 0
-  db 0
-  db 0x9a
-  db 0xcf
-  db 0
-
-gdt_data:               ; Data segment, read/write, expand down
-  dw 0FFFFh
-  dw 0
-  db 0
-  db 0x92
-  db 0xcf
-  db 0
-  
-gdt_code16:
-  dw 0FFFFh
-  dw 0
-  db 0
-  db 0x9e
-  db 0
-  db 0
-
-gdt_data16:
-  dw 0FFFFh
-  dw 0
-  db 0
-  db 0x92
-  db 0
-  db 0	  
-		
-gdtr:
-  dw gdtr-gdt-1
-  dd gdt+boot_program
-  
+ 
 loading   db 13,10,'Loading kernel',13,10,00h
 mens_erro:
           db 13,10

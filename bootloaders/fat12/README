@@ -9,3 +9,9 @@ For details see:
 http://dev64.wordpress.com/2012/01/09/experimenting-with-os-kernel-load-using-menuet-os-boot-loader/
 http://dev64.wordpress.com/2012/01/17/turn_on_protected_mode_in_bootloader/
 
+To build boot loader nasm can be used:
+
+$ nasm loader-realmode.asm
+
+The command above will make binary file 'loader-realmode'. This file
+has to be written to 0 sector of floppy.
