@@ -1,0 +1,11 @@
+This directory contains bootloaders for FAT12 file system. 
+They load KERNEL.MNT file from floppy root directory to address 0x1000:0
+then pass control to 0x1000:0.
+
+loader-realmode.asm is bootloader used in MenuetOS.
+loader-protected.asm is modified version with added switch to protected mode.
+
+For details see:
+http://dev64.wordpress.com/2012/01/09/experimenting-with-os-kernel-load-using-menuet-os-boot-loader/
+http://dev64.wordpress.com/2012/01/17/turn_on_protected_mode_in_bootloader/
+
