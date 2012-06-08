@@ -34,45 +34,45 @@ code_start:
 	
   push byte 1  ; 0x1, 00
   push byte 0x10  ; 0x10, 00
-	mov si, sp
+  mov si, sp
 	
-	mov ah, 0x42  ; function
-	mov dl, 0x80 ; drive id
-	int 0x13
+  mov ah, 0x42  ; function
+  mov dl, 0x80 ; drive id
+  int 0x13
 	
-	jnc read_ok
+  jnc read_ok
 	
-	mov si, err_reading-0x7600 ; error message 
+  mov si, err_reading-0x7600 ; error message 
 	
 show_message:	
-	lodsb              	
-	cmp al,0x0
-	jz infinite_loop
+  lodsb              	
+  cmp al,0x0
+  jz infinite_loop
 
-	push si                       
-	mov bx,0x7  
-	mov ah,0xe  
-	int 0x10
-	pop si 
-	jmp show_message 
+  push si                       
+  mov bx,0x7  
+  mov ah,0xe  
+  int 0x10
+  pop si 
+  jmp show_message 
 infinite_loop:
-	jmp short $  ; infinite loop
+  jmp short $  ; infinite loop
 	
 read_ok:
   cmp word [0x7dfe], 0xaa55 
   jz start_os
 
-	mov si, err_signature-0x7600
-	jmp show_message
+  mov si, err_signature-0x7600
+  jmp show_message
 	
 start_os:
   jmp word 0x0:0x7c00 ; pass control to boot loader
 	
 err_reading:
-	db 'Error Reading Boot Sector',0
+  db 'Error Reading Boot Sector',0
 err_signature:
-	db 'Incorrect signature',0	
+  db 'Incorrect signature',0	
 	
-	finish:
+finish:
   times 0x1FE-finish+start db 0
   db   0x55, 0xaa   ; signature
