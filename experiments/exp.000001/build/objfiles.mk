@@ -1,8 +1,8 @@
 OBJS=obj/start.o\
- obj/i16Al2Hex.o\
- obj/i16MemDetect.o\
- obj/i16MemMapPrint.o\
+ obj/i16AL2Hex.o\
+ obj/i16ALPrint.o\
+ obj/i16E820MemDetect.o\
+ obj/i16E820MemPrint.o\
  obj/i16MemPrintHex.o\
- obj/i16NumberHexPrint.o\
- obj/i16PrintAl.o\
+ obj/i16NumberPrintHex.o\
  obj/i16PrintNL.o
