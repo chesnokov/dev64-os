@@ -1,0 +1,29 @@
+This is first experiment placed in GitHub.
+For more detailes see:
+http://dev64.wordpress.com/osdev
+
+These are some sources of OS Kernel in asm.
+OS Kernel is loaded by Boot Loader to address 0x1000:0
+
+Then memory detection routine is called and the results 
+are printed to screen using BIOS function.
+
+All code is working in Real Mode yet.
+
+The kernel entry point is file: kernel/entry/x86_16/start.asm
+start.asm depends on several library functions placed to
+klib/x86_16 directory.
+
+The descriptions and calling convesions for klib functions are
+placed to include/asm/klib.inc
+
+
+To build:
+
+cd build
+make
+
+Done.
+
+make install will copy kernel to MSDOS floppy if floppy is 
+present in /dev/fd0
