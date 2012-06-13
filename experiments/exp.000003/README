@@ -1,23 +1,12 @@
-Experiment with kernel function addresses
+Experiment with switch to protected mode in OS kernel
 For more detailes see post:
-http://dev64.wordpress.com/2012/06/10/function-addresses-in-kernel/
+http://dev64.wordpress.com/2012/06/13/switch-to-protect-mode-again/
 
-The kernel should be loaded by Boot Loader to 0x1000:0.
-This expreriment demonstrates the 32bit addresses of functions in kernel
-built from elf32 object files.
-
-After start the kernel prints function addresses and stops.
-You can see the correspondence of addresses to addresses in kernel.map 
-file produced by linker.
-
-All code is working in Real Mode yet.
 
 The kernel entry point is file: kernel/entry/x86_16/start.asm
 start.asm depends on several library functions placed to
 klib/x86_16 directory.
 
-The descriptions and calling convesions for klib functions are
-placed to include/asm/klib.inc
 
 To build:
 
