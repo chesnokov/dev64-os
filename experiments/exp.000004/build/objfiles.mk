@@ -17,4 +17,6 @@ OBJS=obj/start.o\
  obj/memPrintHex.o\
  obj/numberPrintHex.o\
  obj/e820MemPrint.o\
- obj/updateCursor.o
+ obj/updateCursor.o\
+ obj/strPrint.o\
+ obj/puts.o
