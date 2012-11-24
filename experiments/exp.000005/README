@@ -1,0 +1,19 @@
+Experiment with set up of interrupts processing in OS kernel
+For more detailes see post:
+http://dev64.wordpress.com/2012/11/22/minimal-x86-interrupts-support-implementation/
+
+
+The kernel entry point is file: kernel/entry/x86_16/start.asm
+start.asm depends on several library functions placed to
+klib/x86_16 directory.
+
+
+To build:
+
+cd build
+make
+
+Done.
+
+make install will copy kernel to MSDOS floppy if floppy is 
+present in /dev/fd0
