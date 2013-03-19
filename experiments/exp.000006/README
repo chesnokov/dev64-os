@@ -1,0 +1,20 @@
+This experiment turns on the Intel Paging. First 4M of liner address space
+are mapped directly to first 4M of physical memory. The additional details see at:
+http://dev64.wordpress.com/2013/03/17/simple-paging-setup-in-os-kernel/
+
+
+The kernel entry point is file: kernel/entry/x86_16/start.asm
+start.asm depends on several library functions.
+
+The funtion which turns on paging placed withing paging.asm file.
+
+
+To build:
+
+cd build
+make
+
+Done.
+
+make install will copy kernel to MSDOS floppy if floppy is 
+present in /dev/fd0
