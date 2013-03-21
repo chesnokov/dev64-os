@@ -1,11 +1,12 @@
-Experiment with switch to protected mode in OS kernel
-For more detailes see post:
-http://dev64.wordpress.com/2012/06/13/switch-to-protect-mode-again/
+Experiment with placing linear kernel address space to upper 4M page.
+For detailes see:
+http://dev64.wordpress.com/2013/03/21/virtual-address-space-in-kernel/
 
 
 The kernel entry point is file: kernel/entry/x86_16/start.asm
-start.asm depends on several library functions placed to
-klib/x86_16 directory.
+start.asm depends on several library functions.
+
+The funtion which turns on paging placed withing paging.asm file.
 
 
 To build:
