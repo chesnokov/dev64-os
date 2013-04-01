@@ -1,0 +1,20 @@
+This is experiment with assembler local callback functions
+(a-la lambda see console.printInSpecifiedPosition in start.asm
+For more information:
+http://dev64.wordpress.com/osdev/
+
+
+The kernel entry point is file: kernel/entry/x86_16/start.asm
+start.asm depends on several library functions placed to
+klib/x86_16 directory.
+
+
+To build:
+
+cd build
+make
+
+Done.
+
+make install will copy kernel to MSDOS floppy if floppy is 
+present in /dev/fd0
