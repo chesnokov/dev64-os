@@ -1,0 +1,17 @@
+This directory contain an experiment with physical memory (physical pages)
+management structures initialization.
+
+Function populate_page_list() takes the array with available 
+memory regions received from BIOS and array of reserved 
+memory regions (provided by OS developer) and calculates
+resulted memory pages available for physical memory management
+subsystem.
+
+The function add_memory_block() is called for each memory
+region. The OS developer should implement custom add_memory_block()
+function which will initialize memory structures used by
+physical pages management subsystem.
+
+I have used CodeBlocks and MiniGW to compile and test this
+code. Any version of gcc is suitable.
+
